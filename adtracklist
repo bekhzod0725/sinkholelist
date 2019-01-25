@@ -58,7 +58,12 @@ filter.mobipromote.com
 xmladsystem.com
 xml.xmladsystem.com
 filter.xmladsystem.com
-
+auction.unityads.unity3d.com
+cdn-highwinds.unityads.unity3d.com
+config.unityads.unity3d.com
+httpkafka.unityads.unity3d.com
+publisher-config.unityads.unity3d.com
+pasta.esfile.duapps.com
 hitopadxdz.xyz
 liveadoptimizer.com
 65mjvw6i1z.com
@@ -96,7 +101,15 @@ uptowntraction.com
 static.uptowntraction.com
 xml.uptowntraction.com
 filter.uptowntraction.com
+graph.facebook.com
+
+#Analytics
+cdp.cloud.unity3d.com
+config.uca.cloud.unity3d.com
+api.uca.cloud.unity3d.com
+stats.unity3d.com
 
 #Unknown
 advice-blog.xyz
 v2.badboys.network
+facemap.foldlife.net
