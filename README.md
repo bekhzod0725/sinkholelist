@@ -13,7 +13,7 @@ To add it to **pfBlockerNG**, you need to include it under DNSBL Groups.
 
 ### **aiplatforms\_custom\_unbound\_view**
 
-A custom Unbound configuration to block AI chat platforms, intended for kid devices. This is based on @Caesarovich[https://github.com/Caesarovich]'s DNS blocklist for AI Tools"[https://github.com/Caesarovich/dns-blocklist-ai], except `duckduckgo.com` was removed from the list.
+A custom Unbound configuration to block AI chat platforms, intended for kid devices. This is based on [@Caesarovich](https://github.com/Caesarovich)'s ["DNS blocklist for AI Tools"](https://github.com/Caesarovich/dns-blocklist-ai), except `duckduckgo.com` was removed from the list.
 
 You can add the contents to Unbound's "Custom Options" or download it directly to `/var/unbound/<filename>.conf` and reference it using:
 
