@@ -1,30 +1,51 @@
+---
+
 # sinkholelist
-My Domain Sinkhole List
+This is a Domain Sinkhole List created by me. A collection of domain sinkhole lists for various use cases.
 
- * **adtracklist**
-   
-   This is a DNSBL list which can be added to any DNS blocker such as PiHole. To add it to pfBlockerNG, it has to be added under DNSBL Groups.
-   
- * aiplatforms_custom_unbound_view
-   
-   This is a Unbound format to block AI-chat platforms. Created as a separate view (in this case for Kids devices). The contents of the file can be simply added to the "Custom Options" of Unbound, or can be downloaded into `/var/unbound/<filename>.conf` and called via `server:include: /var/unbound/<filename.conf>` from "Custom options"
+### **adtracklist**
 
-   The following is the format of the file, where some IPs will most likely need to be changed to fit your needs.
-   ```
-   server:
-      access-control-view: 10.0.2.101/32 kids
-      access-control-view: 10.0.2.102/32 kids
+A DNSBL (Domain Name System-based Blackhole List) for blocking ad and tracking domains. This list can be used with any DNS blocker (e.g., PiHole).
 
-   view:
-      name: "kids"
-      view-first: yes
-      local-data: "ahrefs.com. 900 IN A 10.1.3.85"
-      local-data: "aichatting.net. 900 IN A 10.1.3.85"
-   ```
+To add it to **pfBlockerNG**, you need to include it under DNSBL Groups.
 
-   `access-control-view: 10.0.2.101/32 kids`
-     * 10.0.2.101/32 - is the IP address of each device that need be added to the view
-     * kids - name of the view, should match the `name` field of the `view` section
+---
 
-   `local-data: "ahrefs.com. 900 IN A 10.1.3.85"`
-     * 10.1.3.85 - is the target IP where the domain name should be redirected to. Replace it with your webserver's IP where you wish to display a custom error message.
+### **aiplatforms\_custom\_unbound\_view**
+
+A custom Unbound configuration to block AI chat platforms, intended for kid devices. You can add the contents to Unbound's "Custom Options" or download it directly to `/var/unbound/<filename>.conf` and reference it using:
+
+```plaintext
+server:include: /var/unbound/<filename>.conf
+```
+
+#### File Format
+
+Below is an example configuration:
+
+```plaintext
+server:
+   access-control-view: 10.0.2.101/32 kids
+   access-control-view: 10.0.2.102/32 kids
+
+view:
+   name: "kids"
+   view-first: yes
+   local-data: "ahrefs.com. 900 IN A 10.1.3.85"
+   local-data: "aichatting.net. 900 IN A 10.1.3.85"
+```
+
+#### Explanation of Configuration
+
+* **access-control-view**:
+
+  * `10.0.2.101/32` and `10.0.2.102/32` are the IP addresses of the devices that should use this view (e.g., kids' devices).
+  * `kids` is the name of the view and should match the `name` field in the `view` section.
+
+* **local-data**:
+
+  * `10.1.3.85` is the IP address where the domain should be redirected. Replace it with the IP of your webserver or device that will serve a custom error message.
+  * Example:
+    `local-data: "ahrefs.com. 900 IN A 10.1.3.85"`
+
+---
