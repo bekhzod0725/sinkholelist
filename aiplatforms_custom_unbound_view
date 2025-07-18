@@ -5,7 +5,7 @@ server:
 view:
     name: "kids"
     view-first: yes
-	local-zone: "ahrefs.com." redirect
+    local-zone: "ahrefs.com." redirect
     local-zone: "aichatting.net." redirect
     local-zone: "aichattings.com." redirect
     local-zone: "aistorygenerator.org." redirect
